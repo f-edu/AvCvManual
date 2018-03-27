@@ -1,6 +1,6 @@
 import cv2 as cv
 import numpy as np
-cap = cv.VideoCapture(0)
+cap = cv.VideoCapture(1)
 
 def nothing(x):
     pass

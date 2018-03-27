@@ -46,9 +46,9 @@ class LineDetector():
                 #print np.polyfit(laneCoordinatesX, laneCoordinatesY, 1, None, True)
             except np.RankWarning:
                 rank = 'bad'
-                print "Line fiting problem"
+                print ("Line fiting problem")
             except:
-                print 'URA!!!'
+                print ('URA!!!')
             if rank == 'ok':
                 tmpLineModel = np.poly1d(z) 
                 self.lineModel = tmpLineModel
@@ -63,8 +63,8 @@ class LineDetector():
 
     def CheckLinePositionAndDrawOutput(self, outputFull, img):
 
-        testLeftLineY = 60
-        testLeftLineYD = 280
+        testLeftLineY = 50
+        testLeftLineYD = 130
         
         #find intersection of a lane edge and test line
         testLeftLineIntersection = int(self.lineModel(testLeftLineY))

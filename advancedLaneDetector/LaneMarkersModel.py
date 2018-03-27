@@ -21,8 +21,8 @@ class LaneMarkersModel():
         self.avgHSV = cv.mean(hsv, mask)[0:3]
         distMap = cv.distanceTransform(1-mask, cv.cv.CV_DIST_L2, 5)[0]
         self.lineProbabilityMap = (1.0/(1.0+0.1*distMap))
-        print self.avgRGB 
-        print self.avgHSV 
+        print (self.avgRGB)
+        print (self.avgHSV)
         #cv.imshow('test',self.lineProbabilityMap)
         #cv.waitKey(1)
     

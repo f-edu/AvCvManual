@@ -4,7 +4,7 @@ import time
 
 cap = cv.VideoCapture("test_videos/road.avi")
 if cap.isOpened() == False:
-    print "Cannot open input video"
+    print ("Cannot open input video")
     exit()
 
 

@@ -15,14 +15,14 @@ while(True):
    thresh = cv.inRange(hsv, lower, upper)
 
    thresh = cv.erode(thresh, None, iterations=2)
-   thresh = cv.dilate(thresh, None, iterations=6)
+   thresh = cv.dilate(thresh, None, iterations=4)
 
-   contours, hierarchy = cv.findContours(thresh.copy(), cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
-
+   contours = cv.findContours(thresh.copy(), cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+   contours=contours[1]
    for cnt in contours:
       c = sorted(contours, key=cv.contourArea, reverse=True)[0]
       rect = cv.minAreaRect(c)
-      box = np.int0(cv.cv.BoxPoints(rect))
+      box = np.int0(cv.boxPoints(rect))
       cv.drawContours(frame, [box], -1, (0, 255, 0), 3)  # draw contours in green color
 
       y1 = int(box[0][1])
@@ -48,7 +48,7 @@ while(True):
             for j in range(100):
                if (xresizedRoi[i][j]==xnoDrive[i][j]):
                   identity_percent=identity_percent+1
-         print identity_percent
+         print (identity_percent)
 
    cv.imshow('frame', frame)
 
